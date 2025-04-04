@@ -3,11 +3,12 @@ Theme Name: SpikeZone
 Theme URI: https://example.com/spikezone
 Author: Your Name
 Author URI: https://example.com
-Description: Premium volleyball e-commerce theme based on Tailwind CSS
-Version: 1.0
+Description: Premium volleyball e-commerce theme with WooCommerce support
+Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: spikezone
+Tags: e-commerce, woocommerce, responsive, tailwind, volleyball
 */
 
 /* Import Tailwind CSS */
