@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account | SpikeZone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .account-tab {
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        .account-tab.active {
+            border-bottom-color: #f97316;
+            color: #f97316;
+        }
+        .order-status {
+            position: relative;
+            padding-left: 20px;
+        }
+        .order-status:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        .status-processing:before {
+            background-color: #3b82f6;
+        }
+        .status-shipped:before {
+            background-color: #f59e0b;
+        }
+        .status-delivered:before {
+            background-color: #10b981;
+        }
+        .status-cancelled:before {
+            background-color: #ef4444;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Navigation (same as index.html) -->
+    <nav class="bg-orange-500 text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <i class="fas fa-volleyball-ball text-2xl"></i>
+                <span class="font-bold text-xl">SpikeZone</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="hover:text-orange-200">Home</a>
+                <a href="products.html" class="hover:text-orange-200">Shop</a>
+                <a href="promotions.html" class="hover:text-orange-200">Promotions</a>
+                <a href="blog.html" class="hover:text-orange-200">Blog</a>
+                <a href="contact.html" class="hover:text-orange-200">Contact</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="cart.html" class="hover:text-orange-200">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+                <a href="#" class="hover:text-orange-200">
+                    <i class="fas fa-user"></i>
+                </a>
+                <button class="md:hidden focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Account Header -->
+    <section class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" class="w-16 h-16 rounded-full border-2 border-orange-500 mr-4">
+                    <div>
+                        <h1 class="text-2xl font-bold">John D.</h1>
+                        <p class="text-gray-300">Member since June 2023</p>
+                    </div>
+                </div>
+                <div class="flex md:ml-auto space-x-4">
+                    <div class="text-center px-4 py-2 bg-gray-700 rounded-lg">
+                        <p class="text-sm text-gray-300">Loyalty Points</p>
+                        <p class="font-bold text-orange-500">1,250</p>
+                    </div>
+                    <div class="text-center px-4 py-2 bg-gray-700 rounded-lg">
+                        <p class="text-sm text-gray-300">Orders</p>
+                        <p class="font-bold">5</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Account Content -->
+    <section class="py-8">
+        <div class="container mx-auto px-6">
+            <!-- Account Tabs -->
+            <div class="flex border-b border-gray-200 mb-8">
+                <button class="account-tab active px-6 py-3 font-bold">Dashboard</button>
+                <button class="account-tab px-6 py-3 font-bold text-gray-500 hover:text-orange-500">Orders</button>
+                <button class="account-tab px-6 py-3 font-bold text-gray-500 hover:text-orange-500">Addresses</button>
+                <button class="account-tab px-6 py-3 font-bold text-gray-500 hover:text-orange-500">Wishlist</button>
+                <button class="account-tab px-6 py-3 font-bold text-gray-500 hover:text-orange-500">Account Details</button>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Main Content -->
+                <div class="lg:w-2/3">
+                    <!-- Recent Orders -->
+                    <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h2 class="text-xl font-bold">Recent Orders</h2>
+                            <a href="#" class="text-orange-500 hover:underline">View All</a>
+                        </div>
+                        
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead class="bg-gray-100">
+                                    <tr>
+                                        <th class="px-4 py-2 text-left">Order #</th>
+                                        <th class="px-4 py-2 text-left">Date</th>
+                                        <th class="px-4 py-2 text-left">Status</th>
+                                        <th class="px-4 py-2 text-left">Total</th>
+                                        <th class="px-4 py-2 text-right">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Order 1 -->
+                                    <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                        <td class="px-4 py-3">#SP-2024-0012</td>
+                                        <td class="px-4 py-3">July 15, 2024</td>
+                                        <td class="px-4 py-3 order-status status-delivered">Delivered</td>
+                                        <td class="px-4 py-3">$356.37</td>
+                                        <td class="px-4 py-3 text-right">
+                                            <a href="#" class="text-orange-500 hover:underline">View</a>
+                                        </td>
+                                    </tr>
+                                    <!-- Order 2 -->
+                                    <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                        <td class="px-4 py-3">#SP-2024-0008</td>
+                                        <td class="px-4 py-3">June 28, 2024</td>
+                                        <td class="px-4 py-3 order-status status-shipped">Shipped</td>
+                                        <td class="px-4 py-3">$129.99</td>
+                                        <td class="px-4 py-3 text-right">
+                                            <a href="#" class="text-orange-500 hover:underline">View</a>
+                                        </td>
+                                    </tr>
+                                    <!-- Order 3 -->
+                                    <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                        <td class="px-4 py-3">#SP-2024-0005</td>
+                                        <td class="px-4 py-3">June 10, 2024</td>
+                                        <td class="px-4 py-3 order-status status-delivered">Delivered</td>
+                                        <td class="px-4 py-3">$199.98</td>
+                                        <td class="px-4 py-3 text-right">
+                                            <a href="#" class="text-orange-500 hover:underline">View</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Wishlist -->
+                    <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h2 class="text-xl font-bold">Wishlist</h2>
+                            <a href="#" class="text-orange-500 hover:underline">View All</a>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <!-- Wishlist Item 1 -->
+                            <div class="flex border border-gray-200 rounded p-3 hover:shadow-md transition duration-300">
+                                <div class="flex-shrink-0 w-20 h-20">
+                                    <img src="https://images.pexels.com/photos/1478438/pexels-photo-1478438.jpeg" alt="Product" class="w-full h-full object-cover">
+                                </div>
+                                <div class="ml-3">
+                                    <h3 class="font-bold">All Court Pro</h3>
+                                    <p class="text-gray-600 text-sm mb-2">$149.99</p>
+                                    <div class="flex space-x-2">
+                                        <button class="text-xs bg-orange-500 text-white px-2 py-1 rounded hover:bg-orange-600 transition duration-300">Add to Cart</button>
+                                        <button class="text-xs text-gray-500 hover:text-red-500">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Wishlist Item 2 -->
+                            <div class="flex border border-gray-200 rounded p-3 hover:shadow-md transition duration-300">
+                                <div class="flex-shrink-0 w-20 h-20">
+                                    <img src="https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg" alt="Product" class="w-full h-full object-cover">
+                                </div>
+                                <div class="ml-3">
+                                    <h3 class="font-bold">Libero Flex</h3>
+                                    <p class="text-gray-600 text-sm mb-2">$109.99</p>
+                                    <div class="flex space-x-2">
+                                        <button class="text-xs bg-orange-500 text-white px-2 py-1 rounded hover:bg-orange-600 transition duration-300">Add to Cart</button>
+                                        <button class="text-xs text-gray-500 hover:text-red-500">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="lg:w-1/3">
+                    <!-- Account Details -->
+                    <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                        <h2 class="text-xl font-bold mb-4">Account Details</h2>
+                        <div class="space-y-3">
+                            <div>
+                                <p class="text-sm text-gray-500">Name</p>
+                                <p class="font-medium">John Doe</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">Email</p>
+                                <p class="font-medium">john.doe@example.com</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">Phone</p>
+                                <p class="font-medium">(555) 123-4567</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">Default Shipping Address</p>
+                                <p class="font-medium">123 Main St, Apt 4B<br>New York, NY 10001</p>
+                            </div>
+                            <button class="w-full mt-4 bg-gray-100 text-gray-800 py-2 rounded font-bold hover:bg-gray-200 transition duration-300">
+                                Edit Account
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Loyalty Program -->
+                    <div class="bg-orange-500 text-white rounded-lg shadow-md p-6 mb-6">
+                        <h2 class="text-xl font-bold mb-2">Loyalty Rewards</h2>
+                        <p class="mb-4">You have <span class="font-bold">1,250 points</span> - just 250 points away from your next reward!</p>
+                        
+                        <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4">
+                            <div class="bg-white h-2.5 rounded-full" style="width: 83%"></div>
+                        </div>
+                        
+                        <p class="text-sm mb-4">Earn 1 point for every $1 spent. 1,500 points = $15 credit.</p>
+                        <a href="#" class="text-white font-bold hover:underline">Learn More</a>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h2 class="text-xl font-bold mb-4">Quick Links</h2>
+                        <ul class="space-y-3">
+                            <li>
+                                <a href="#" class="flex items-center text-gray-700 hover:text-orange-500">
+                                    <i class="fas fa-truck mr-2"></i>
+                                    <span>Track Order</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center text-gray-700 hover:text-orange-500">
+                                    <i class="fas fa-undo mr-2"></i>
+                                    <span>Return Items</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center text-gray-700 hover:text-orange-500">
+                                    <i class="fas fa-heart mr-2"></i>
+                                    <span>Wishlist</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center text-gray-700 hover:text-orange-500">
+                                    <i class="fas fa-cog mr-2"></i>
+                                    <span>Account Settings</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center text-gray-700 hover:text-orange-500">
+                                    <i class="fas fa-sign-out-alt mr-2"></i>
+                                    <span>Sign Out</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter (same as index.html) -->
+    <section class="py-16 bg-orange-500 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-4">Join Our Community</h2>
+            <p class="mb-8 max-w-2xl mx-auto">Subscribe to get exclusive offers, new product announcements, and volleyball tips.</p>
+            <div class="max-w-md mx-auto flex">
+                <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-l-full focus:outline-none text-gray-800">
+                <button class="bg-gray-800 text-white px-6 py-3 rounded-r-full font-bold hover:bg-gray-700 transition duration-300">Subscribe</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (same as index.html) -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="font-bold text-xl mb-4">SpikeZone</h3>
+                    <p class="text-gray-400">Premium volleyball shoes for players at all levels.</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Shop</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Men's Shoes</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Women's Shoes</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">New Arrivals</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Sale</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Help</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Shipping</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Returns</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Size Guide</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2 text-gray-400"></i>
+                            <span class="text-gray-400">123 Court Street, Sports City</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-2 text-gray-400"></i>
+                            <span class="text-gray-400">(555) 123-4567</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2 text-gray-400"></i>
+                            <span class="text-gray-400">info@spikezone.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 SpikeZone. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab Switching
+        document.querySelectorAll('.account-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.account-tab').forEach(t => {
+                    t.classList.remove('active');
+                    t.classList.add('text-gray-500', 'hover:text-orange-500');
+                });
+                this.classList.add('active');
+                this.classList.remove('text-gray-500', 'hover:text-orange-500');
+            });
+        });
+    </script>
+</body>
+</html>
