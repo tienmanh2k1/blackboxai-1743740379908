@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volleyball Blog | SpikeZone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .category-tag {
+            transition: all 0.3s ease;
+        }
+        .article-card:hover .category-tag {
+            background-color: #f97316;
+            color: white;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Navigation (same as index.html) -->
+    <nav class="bg-orange-500 text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <i class="fas fa-volleyball-ball text-2xl"></i>
+                <span class="font-bold text-xl">SpikeZone</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="hover:text-orange-200">Home</a>
+                <a href="products.html" class="hover:text-orange-200">Shop</a>
+                <a href="promotions.html" class="hover:text-orange-200">Promotions</a>
+                <a href="#" class="hover:text-orange-200 font-bold">Blog</a>
+                <a href="contact.html" class="hover:text-orange-200">Contact</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="cart.html" class="hover:text-orange-200">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+                <a href="account.html" class="hover:text-orange-200">
+                    <i class="fas fa-user"></i>
+                </a>
+                <button class="md:hidden focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Hero -->
+    <section class="relative bg-orange-600 text-white py-16">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">SpikeZone Blog</h1>
+            <p class="text-xl md:text-2xl mb-8">Tips, news, and insights for volleyball players</p>
+            <div class="max-w-2xl mx-auto">
+                <div class="relative">
+                    <input type="text" placeholder="Search articles..." class="w-full px-6 py-3 rounded-full focus:outline-none focus:ring-2 focus:ring-orange-300 text-gray-800">
+                    <button class="absolute right-2 top-2 bg-orange-500 text-white p-2 rounded-full hover:bg-orange-600 transition duration-300">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Main Articles -->
+                <div class="lg:w-2/3">
+                    <!-- Featured Article -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden mb-8 article-card transition duration-300">
+                        <img src="https://images.pexels.com/photos/1271619/pexels-photo-1271619.jpeg" alt="Featured Article" class="w-full h-64 md:h-80 object-cover">
+                        <div class="p-6">
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="category-tag bg-gray-100 text-orange-500 text-xs font-bold px-3 py-1 rounded-full">TRAINING</span>
+                                <span class="text-sm text-gray-500">July 15, 2024</span>
+                            </div>
+                            <h2 class="text-2xl font-bold mb-3">5 Essential Footwork Drills for Volleyball Players</h2>
+                            <p class="text-gray-600 mb-4">Improve your court coverage and reaction time with these proven footwork exercises used by professional players.</p>
+                            <div class="flex items-center">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Author" class="w-8 h-8 rounded-full mr-2">
+                                <span class="text-sm text-gray-600">By Coach Sarah Johnson</span>
+                            </div>
+                            <a href="#" class="inline-block mt-4 text-orange-500 font-bold hover:underline">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Article Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Article 1 -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden article-card transition duration-300">
+                            <img src="https://images.pexels.com/photos/3991873/pexels-photo-3991873.jpeg" alt="Article 1" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <div class="flex justify-between items-center mb-3">
+                                    <span class="category-tag bg-gray-100 text-orange-500 text-xs font-bold px-3 py-1 rounded-full">GEAR GUIDE</span>
+                                    <span class="text-sm text-gray-500">July 10, 2024</span>
+                                </div>
+                                <h3 class="font-bold text-lg mb-2">How to Choose the Right Volleyball Shoes for Your Position</h3>
+                                <p class="text-gray-600 text-sm mb-4">Different positions require different features - learn what to look for based on your playing style.</p>
+                                <a href="#" class="text-sm text-orange-500 hover:underline">Read More</a>
+                            </div>
+                        </div>
+
+                        <!-- Article 2 -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden article-card transition duration-300">
+                            <img src="https://images.pexels.com/photos/3094230/pexels-photo-3094230.jpeg" alt="Article 2" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <div class="flex justify-between items-center mb-3">
+                                    <span class="category-tag bg-gray-100 text-orange-500 text-xs font-bold px-3 py-1 rounded-full">NUTRITION</span>
+                                    <span class="text-sm text-gray-500">July 5, 2024</span>
+                                </div>
+                                <h3 class="font-bold text-lg mb-2">Pre-Game Nutrition: What to Eat Before a Match</h3>
+                                <p class="text-gray-600 text-sm mb-4">Fuel your performance with these science-backed nutrition tips for volleyball players.</p>
+                                <a href="#" class="text-sm text-orange-500 hover:underline">Read More</a>
+                            </div>
+                        </div>
+
+                        <!-- Article 3 -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden article-card transition duration-300">
+                            <img src="https://images.pexels.com/photos/1271620/pexels-photo-1271620.jpeg" alt="Article 3" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <div class="flex justify-between items-center mb-3">
+                                    <span class="category-tag bg-gray-100 text-orange-500 text-xs font-bold px-3 py-1 rounded-full">TRAINING</span>
+                                    <span class="text-sm text-gray-500">June 28, 2024</span>
+                                </div>
+                                <h3 class="font-bold text-lg mb-2">Improving Your Vertical Jump: Exercises That Work</h3>
+                                <p class="text-gray-600 text-sm mb-4">Increase your spike height with these targeted plyometric exercises.</p>
+                                <a href="#" class="text-sm text-orange-500 hover:underline">Read More</a>
+                            </div>
+                        </div>
+
+                        <!-- Article 4 -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden article-card transition duration-300">
+                            <img src="https://images.pexels.com/photos/3994862/pexels-photo-3994862.jpeg" alt="Article 4" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <div class="flex justify-between items-center mb-3">
+                                    <span class="category-tag bg-gray-100 text-orange-500 text-xs font-bold px-3 py-1 rounded-full">INJURY PREVENTION</span>
+                                    <span class="text-sm text-gray-500">June 20, 2024</span>
+                                </div>
+                                <h3 class="font-bold text-lg mb-2">Ankle Strengthening Exercises for Volleyball Players</h3>
+                                <p class="text-gray-600 text-sm mb-4">Reduce your risk of common volleyball injuries with these simple exercises.</p>
+                                <a href="#" class="text-sm text-orange-500 hover:underline">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="flex justify-center mt-8">
+                        <nav class="flex items-center space-x-2">
+                            <button class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 text-gray-600 hover:bg-orange-500 hover:text-white transition duration-300">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="w-10 h-10 flex items-center justify-center rounded-full bg-orange-500 text-white">1</button>
+                            <button class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 text-gray-600 hover:bg-orange-500 hover:text-white transition duration-300">2</button>
+                            <button class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 text-gray-600 hover:bg-orange-500 hover:text-white transition duration-300">3</button>
+                            <span class="px-2">...</span>
+                            <button class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 text-gray-600 hover:bg-orange-500 hover:text-white transition duration-300">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="lg:w-1/3">
+                    <!-- Categories -->
+                    <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                        <h3 class="font-bold text-lg mb-4">Categories</h3>
+                        <ul class="space-y-2">
+                            <li>
+                                <a href="#" class="flex justify-between items-center text-gray-700 hover:text-orange-500">
+                                    <span>Training</span>
+                                    <span class="bg-gray-100 text-xs px-2 py-1 rounded-full">12</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex justify-between items-center text-gray-700 hover:text-orange-500">
+                                    <span>Gear Guide</span>
+                                    <span class="bg-gray-100 text-xs px-2 py-1 rounded-full">8</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex justify-between items-center text-gray-700 hover:text-orange-500">
+                                    <span>Nutrition</span>
+                                    <span class="bg-gray-100 text-xs px-2 py-1 rounded-full">5</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex justify-between items-center text-gray-700 hover:text-orange-500">
+                                    <span>Injury Prevention</span>
+                                    <span class="bg-gray-100 text-xs px-2 py-1 rounded-full">7</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex justify-between items-center text-gray-700 hover:text-orange-500">
+                                    <span>Team Strategies</span>
+                                    <span class="bg-gray-100 text-xs px-2 py-1 rounded-full">4</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Popular Articles -->
+                    <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                        <h3 class="font-bold text-lg mb-4">Popular Articles</h3>
+                        <div class="space-y-4">
+                            <div class="flex">
+                                <div class="flex-shrink-0 w-16 h-16">
+                                    <img src="https://images.pexels.com/photos/3991873/pexels-photo-3991873.jpeg" alt="Popular Article" class="w-full h-full object-cover rounded">
+                                </div>
+                                <div class="ml-3">
+                                    <a href="#" class="font-medium text-gray-800 hover:text-orange-500">The Best Volleyball Shoes of 2024</a>
+                                    <p class="text-xs text-gray-500">June 15, 2024</p>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="flex-shrink-0 w-16 h-16">
+                                    <img src="https://images.pexels.com/photos/1271619/pexels-photo-1271619.jpeg" alt="Popular Article" class="w-full h-full object-cover rounded">
+                                </div>
+                                <div class="ml-3">
+                                    <a href="#" class="font-medium text-gray-800 hover:text-orange-500">10 Drills to Improve Your Serve</a>
+                                    <p class="text-xs text-gray-500">June 8, 2024</p>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="flex-shrink-0 w-16 h-16">
+                                    <img src="https://images.pexels.com/photos/3094230/pexels-photo-3094230.jpeg" alt="Popular Article" class="w-full h-full object-cover rounded">
+                                </div>
+                                <div class="ml-3">
+                                    <a href="#" class="font-medium text-gray-800 hover:text-orange-500">Recovery Techniques After Intense Matches</a>
+                                    <p class="text-xs text-gray-500">May 30, 2024</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Newsletter Signup -->
+                    <div class="bg-orange-500 text-white rounded-lg shadow-md p-6">
+                        <h3 class="font-bold text-lg mb-2">Stay Updated</h3>
+                        <p class="text-sm mb-4">Get the latest articles and volleyball tips delivered to your inbox.</p>
+                        <div class="flex">
+                            <input type="email" placeholder="Your email" class="flex-grow px-4 py-2 rounded-l focus:outline-none text-gray-800">
+                            <button class="bg-gray-800 text-white px-4 py-2 rounded-r font-bold hover:bg-gray-700 transition duration-300">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter (same as index.html) -->
+    <section class="py-16 bg-orange-500 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-4">Join Our Community</h2>
+            <p class="mb-8 max-w-2xl mx-auto">Subscribe to get exclusive offers, new product announcements, and volleyball tips.</p>
+            <div class="max-w-md mx-auto flex">
+                <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-l-full focus:outline-none text-gray-800">
+                <button class="bg-gray-800 text-white px-6 py-3 rounded-r-full font-bold hover:bg-gray-700 transition duration-300">Subscribe</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (same as index.html) -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="font-bold text-xl mb-4">SpikeZone</h3>
+                    <p class="text-gray-400">Premium volleyball shoes for players at all levels.</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Shop</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Men's Shoes</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Women's Shoes</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">New Arrivals</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Sale</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Help</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Shipping</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Returns</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Size Guide</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2 text-gray-400"></i>
+                            <span class="text-gray-400">123 Court Street, Sports City</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-2 text-gray-400"></i>
+                            <span class="text-gray-400">(555) 123-4567</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2 text-gray-400"></i>
+                            <span class="text-gray-400">info@spikezone.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 SpikeZone. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
